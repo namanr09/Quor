@@ -4,6 +4,7 @@ import "./globals.css";
 import MyClerkProvider from "@/providers/ClerkProvider";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { cn } from "@/lib/utils";
+import {Toaster} from "react-hot-toast"
 import ModalProviders from "@/providers/ModalProviders";
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
             >
             <ModalProviders/>
             {children}
+            <Toaster/>
           </ThemeProvider>
         </MyClerkProvider>
       </body>

@@ -1,5 +1,7 @@
 "use client"
+import CreateChannelModal from '@/app/_components/modal/CreateChannelModal';
 import CreateServerModal from '@/app/_components/modal/CreateServerModal'
+import InvitationModal from '@/app/_components/modal/InvitationModal';
 import React, { useEffect, useState } from 'react'
 
 
@@ -15,6 +17,8 @@ export default function ModalProviders() {
   return (
     <>
     <CreateServerModal/>
+    <InvitationModal/> 
+    <CreateChannelModal/>
     </>
 )
 }

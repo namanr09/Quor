@@ -49,7 +49,7 @@ export default async function NavigationSideBar() {
   return (
     <div className="space-y-4 flex flex-col items-center h-full text-primary max-w-[70px] w-[70px]  p-1 dark:bg-[#1E1F22] py-3 justify-between">
       <div className="flex flex-col justify-start items-center space-y-5">
-        <div className='text-xs text-muted-foreground'>
+        <div className='text-xs text-muted-foreground font-bold'>
           Servers
         </div>
         <div className='flex flex-col space-y-2'>

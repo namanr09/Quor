@@ -7,6 +7,7 @@ import { CardStackPlusIcon, PlusCircledIcon, PlusIcon } from "@radix-ui/react-ic
 import { AudioLines, Hash, MessageSquare, Search, Video } from "lucide-react"
 import { redirect } from "next/navigation"
 import React from "react"
+import AddChannelButton from "./AddChannelButton"
 type ServerOptionsProps = {
     server : Server
 }
@@ -55,7 +56,7 @@ export default async function ServerChannels ( {server }  : ServerOptionsProps  
               <div className="w-full ">
                 <input
                   type="text"
-                  className="w-[150px]  outline-none border-none p-2 text-xs text-muted-foreground"
+                  className="w-[150px]  outline-none border-none p-2 text-xs text-muted-foreground bg-background"
                 />
               </div>
               <Search className="text-muted-foreground w-5 h-5" />
@@ -66,27 +67,11 @@ export default async function ServerChannels ( {server }  : ServerOptionsProps  
                 <span>Text Channels</span>
               </div>
 
-              <div className="flex flex-col w-full pl-2 p-1 ">
+              <div className="flex flex-col w-full pl-2 p-2 space-y-1">
                 {TextChannels.map((channel) => (
                   <div className="flex items-center text-muted-foreground">
                     <Hash className="w-4 h-4" />
-                    <span className="text-muted-foreground text-sm">
-                      {channel.name}
-                    </span>
-                  </div>
-                ))}
-                {TextChannels.map((channel) => (
-                  <div className="flex items-center text-muted-foreground">
-                    <Hash className="w-4 h-4" />
-                    <span className="text-muted-foreground text-sm">
-                      {channel.name}
-                    </span>
-                  </div>
-                ))}
-                {TextChannels.map((channel) => (
-                  <div className="flex items-center text-muted-foreground">
-                    <Hash className="w-4 h-4" />
-                    <span className="text-muted-foreground text-sm">
+                    <span className="text-muted-foreground text-sm truncate ">
                       {channel.name}
                     </span>
                   </div>
@@ -99,28 +84,12 @@ export default async function ServerChannels ( {server }  : ServerOptionsProps  
                 <span>Audio Channels</span>
               </div>
               {/* <div className="w-full h-[1px] bg-muted-foreground/60  "></div> */}
-              <div className="flex flex-col w-full pl-2 p-1 ">
-                {TextChannels.map((channel) => (
+              <div className="flex flex-col w-full pl-2 p-1 space-y-1 ">
+                {AudioChannels.map((channel) => (
                   <div className="flex items-center text-muted-foreground">
                     <Hash className="w-4 h-4" />
-                    <span className="text-muted-foreground text-sm">
+                    <span className="text-muted-foreground text-sm truncate ">
                       {channel.name}
-                    </span>
-                  </div>
-                ))}
-                {TextChannels.map((channel) => (
-                  <div className="flex items-center text-muted-foreground">
-                    <Hash className="w-4 h-4" />
-                    <span className="text-muted-foreground text-sm">
-                      {channel.name}
-                    </span>
-                  </div>
-                ))}
-                {TextChannels.map((channel) => (
-                  <div className="flex items-center text-muted-foreground">
-                    <Hash className="w-4 h-4" />
-                    <span className="text-muted-foreground text-sm">
-                        audio gang 🔥
                     </span>
                   </div>
                 ))}
@@ -130,12 +99,19 @@ export default async function ServerChannels ( {server }  : ServerOptionsProps  
                 <Video className="w-4 h-4" />
                 <span>Video Channels</span>
               </div>
+              <div className="flex flex-col w-full pl-2 p-1 space-y-1">
+                {VideoChannels.map((channel) => (
+                  <div className="flex items-center text-muted-foreground">
+                    <Hash className="w-4 h-4" />
+                    <span className="text-muted-foreground text-sm truncate ">
+                      {channel.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="flex p-2 w-full">
-              <Button className="w-full" variant={"outline"}>
-                <PlusCircledIcon className="w-5 h-5" />
-                {/* <span className="text-xs ">Create A New Channel</span> */}
-              </Button>
+              <AddChannelButton server={server} />
             </div>
           </div>
         );

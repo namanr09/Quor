@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ArrowDownCircle, ArrowUpIcon, ChevronDown, ChevronUp, PackagePlus, SettingsIcon, Trash, UserRoundPlus, UsersRound } from 'lucide-react';
 import { TrashIcon } from '@radix-ui/react-icons';
+import { useModal } from '@/hooks/use-modal-store';
 
 
 type ServerOptionsProps = {
@@ -24,6 +25,7 @@ export default  function ServerOptions ( {server }  : ServerOptionsProps  )  {
     //     where: {id: serverId.toString()}
     // })
     const [isOpen ,setIsOpen] = useState(false); 
+    const  {onOpen } = useModal();
 
   return (
     <div className="">
@@ -50,7 +52,7 @@ export default  function ServerOptions ( {server }  : ServerOptionsProps  )  {
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>
+          <DropdownMenuItem role='button' onClick={()=> onOpen('invite', { server  } ) }>
             <div className="text-muted-foreground text-sm flex items-center space-x-2">
               <div>
                 <UserRoundPlus className="w-4 h-4" />
